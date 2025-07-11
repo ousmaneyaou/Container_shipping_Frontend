@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/shipping-container-front/static/css/main.1d90402e.css",
+    "main.js": "/shipping-container-front/static/js/main.b9883be9.js",
+    "static/js/453.cbbcfa3e.chunk.js": "/shipping-container-front/static/js/453.cbbcfa3e.chunk.js",
+    "static/media/fejuz-q6j5mSRpi50-unsplash.jpg": "/shipping-container-front/static/media/fejuz-q6j5mSRpi50-unsplash.74c437b120925bcb5653.jpg",
+    "static/media/cont1.jpg": "/shipping-container-front/static/media/cont1.a0266e02f22f15b77345.jpg",
+    "static/media/tri-eptaroka-mardiana-hP4ZiN1_kdk-unsplash.jpg": "/shipping-container-front/static/media/tri-eptaroka-mardiana-hP4ZiN1_kdk-unsplash.318dafa5aec8201cfb3a.jpg",
+    "static/media/jonas-smith-aL6tG-j-E4Y-unsplash.jpg": "/shipping-container-front/static/media/jonas-smith-aL6tG-j-E4Y-unsplash.0a49b0dcd662710fbada.jpg",
+    "static/media/thais-morais-9c6j-akotJQ-unsplash.jpg": "/shipping-container-front/static/media/thais-morais-9c6j-akotJQ-unsplash.833c0ebe5b7af7565ed9.jpg",
+    "static/media/vidar-nordli-mathisen-y8TMoCzw87E-unsplash.jpg": "/shipping-container-front/static/media/vidar-nordli-mathisen-y8TMoCzw87E-unsplash.93272993b58a297535c2.jpg",
+    "static/media/home.png": "/shipping-container-front/static/media/home.0d48b082285148247c5e.png",
+    "static/media/f85ac460-5b78-4ef9-acba-07f0f0f7b8d7.webp": "/shipping-container-front/static/media/f85ac460-5b78-4ef9-acba-07f0f0f7b8d7.eb8335dc31e7f538fa2f.webp",
+    "static/media/pr3.jpeg": "/shipping-container-front/static/media/pr3.1c647cf2f031a81b4960.jpeg",
+    "static/media/2025-rfp-hub_img_1200x800.webp": "/shipping-container-front/static/media/2025-rfp-hub_img_1200x800.8a38970ec8832d503b0b.webp",
+    "static/media/cont2.jpg": "/shipping-container-front/static/media/cont2.eada7f98a6a36e6a45b0.jpg",
+    "static/media/FMU_Blog_Thumbnail.webp": "/shipping-container-front/static/media/FMU_Blog_Thumbnail.73dbd9ce967a092ed5d2.webp",
+    "index.html": "/shipping-container-front/index.html",
+    "main.1d90402e.css.map": "/shipping-container-front/static/css/main.1d90402e.css.map",
+    "main.b9883be9.js.map": "/shipping-container-front/static/js/main.b9883be9.js.map",
+    "453.cbbcfa3e.chunk.js.map": "/shipping-container-front/static/js/453.cbbcfa3e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1d90402e.css",
+    "static/js/main.b9883be9.js"
+  ]
+}
