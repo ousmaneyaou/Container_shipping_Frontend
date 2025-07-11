@@ -1,0 +1,192 @@
+/* AdminColisPage.css */
+
+.colis-list-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  padding-top: 8rem;
+}
+
+.colis-list-page h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.filter-bar label {
+  font-weight: 500;
+  color: #495057;
+  margin-right: 0.5rem;
+}
+
+.filter-bar select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: white;
+  color: #495057;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-bar select:hover {
+  border-color: #adb5bd;
+}
+
+.filter-bar select:focus {
+  outline: none;
+  border-color: #4dabf7;
+  box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.2);
+}
+
+.loading-message,
+.empty-message {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+.colis-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.colis-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.colis-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.colis-card.paye {
+  border-left: 4px solid #40c057;
+}
+
+.colis-card:not(.paye) {
+  border-left: 4px solid #fa5252;
+}
+
+.colis-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.colis-info {
+  padding: 1.2rem;
+  flex-grow: 1;
+}
+
+.colis-info p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.colis-info strong {
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.colis-card button {
+  margin: 1.2rem;
+  padding: 0.6rem 1rem;
+  background-color: #4dabf7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  align-self: center;
+}
+
+.colis-card button:hover {
+  background-color: #339af0;
+}
+
+.colis-card select {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+/* États des colis */
+.etat-en-attente {
+  color: #fcc419;
+  font-weight: 500;
+}
+
+.etat-en-cours {
+  color: #228be6;
+  font-weight: 500;
+}
+
+.etat-livre {
+  color: #40c057;
+  font-weight: 500;
+}
+
+.etat-annule {
+  color: #fa5252;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .colis-list-page {
+    padding: 1rem;
+  }
+  
+  .filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .colis-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation de chargement */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.colis-list {
+  animation: fadeIn 0.5s ease-in;
+}

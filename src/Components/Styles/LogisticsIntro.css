@@ -1,0 +1,423 @@
+/**
+ * SARAYA LOGISTICS INTRO SECTION
+ * Design System: #0C1E3E (Bleu Nuit) | #FF9900 (Orange Vif)
+ * Features:
+ * - Effets 3D holographiques
+ * - Animation de profondeur dynamique
+ * - Design responsive intelligent
+ * - Micro-interactions premium
+ * - Système de grille adaptatif
+ */
+
+:root {
+  /* SARAYA Color System */
+  --deep-blue: #0c1e3e;
+  --gold-orange: #ff9900;
+  --gold-gradient: linear-gradient(135deg, #ff9900 0%, #ffcc00 100%);
+  --blue-gradient: linear-gradient(135deg, #0c1e3e 0%, #1a3a6c 100%);
+  --light-bg: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+  
+  /* 3D Effect Parameters */
+  --perspective: 1500px;
+  --tilt-angle: 15deg;
+  
+  /* Timing Functions */
+  --ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --ease-smooth: cubic-bezier(0.33, 1, 0.68, 1);
+  
+  /* Depth Shadows */
+  --depth-3: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --depth-4: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+  --glow-blue: 0 0 20px rgba(12, 30, 62, 0.2);
+}
+
+/* Section Container with Parallax Effect */
+.logistics-intro {
+  padding: 10rem 5%;
+  background: var(--light-bg);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transform-style: preserve-3d;
+}
+
+/* Dynamic Background Pattern */
+.logistics-intro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 153, 0, 0.03) 0%, transparent 20%),
+    linear-gradient(135deg, rgba(12, 30, 62, 0.03) 0%, transparent 50%),
+    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwYzFlM2UiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00eiIvPjwvZz48L2c+PC9zdmc+');
+  opacity: 0.15;
+  z-index: -1;
+  animation: patternMove 120s linear infinite;
+}
+
+@keyframes patternMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 1000px 1000px; }
+}
+
+/* 3D Content Container */
+.intro-container {
+  display: flex;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 6rem;
+  position: relative;
+  z-index: 1;
+  transform-style: preserve-3d;
+  margin-top: 3rem;
+}
+
+/* Content Block with Floating Effect */
+.intro-content {
+  flex: 1;
+  animation: floatIn 1s var(--ease-smooth) both;
+  transform-style: preserve-3d;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) rotateY(10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+  }
+}
+
+/* Holographic Title with Depth */
+.intro-title {
+  font-size: clamp(2.8rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 2rem;
+  color: var(--deep-blue);
+  position: relative;
+  text-shadow: 0 2px 10px rgba(12, 30, 62, 0.1);
+  letter-spacing: -0.03em;
+}
+
+.intro-title span {
+  background: var(--blue-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.intro-title span::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gold-gradient);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s var(--ease-smooth);
+}
+
+.intro-title:hover span::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Animated Text with Gradient Border */
+.intro-text {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  max-width: 650px;
+  position: relative;
+  padding: 1.5rem 0;
+}
+
+.intro-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: var(--gold-gradient);
+  border-radius: 2px;
+}
+
+/* Interactive Stats with 3D Effect */
+.intro-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 3rem;
+  perspective: 1000px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 2rem;
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--ease-smooth);
+}
+
+.stat:hover {
+  transform: translateY(-5px) translateZ(20px);
+}
+
+.stat::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--gold-gradient);
+  border-radius: 4px;
+  transform: translateZ(10px);
+}
+
+.stat-number {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--deep-blue);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.stat-number::after {
+  content: '+';
+  position: absolute;
+  right: -0.8em;
+  color: var(--gold-orange);
+}
+
+.stat-label {
+  font-size: 0.9375rem;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+/* 3D Image Container with Interactive Tilt */
+.intro-image {
+  flex: 1;
+  position: relative;
+  animation: floatInRight 1s var(--ease-smooth) 0.2s both;
+  transform-style: preserve-3d;
+}
+
+@keyframes floatInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px) rotateY(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+  }
+}
+
+.intro-img-container {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s var(--ease-smooth);
+}
+
+.intro-img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--depth-3);
+  transform: perspective(var(--perspective)) rotateY(calc(var(--tilt-angle) * -1));
+  transition: all 0.8s var(--ease-smooth);
+  border: 12px solid white;
+  position: relative;
+  z-index: 1;
+}
+
+.intro-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--blue-gradient);
+  opacity: 0;
+  border-radius: 12px;
+  transition: opacity 0.6s var(--ease-smooth);
+  mix-blend-mode: multiply;
+}
+
+.intro-image:hover .intro-img {
+  transform: perspective(var(--perspective)) rotateY(-5deg) translateY(-15px);
+  box-shadow: var(--depth-4);
+}
+
+.intro-image:hover .intro-img-overlay {
+  opacity: 0.1;
+}
+
+/* Floating Badge Element */
+.intro-badge {
+  position: absolute;
+  bottom: -2rem;
+  right: -2rem;
+  background: var(--gold-gradient);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  font-weight: 800;
+  box-shadow: var(--depth-3);
+  z-index: 2;
+  transform: rotate(5deg);
+  transition: all 0.6s var(--ease-elastic);
+}
+
+.intro-image:hover .intro-badge {
+  transform: rotate(0deg) translateY(-10px);
+  box-shadow: 0 30px 50px -15px rgba(255, 153, 0, 0.4);
+}
+
+/* Responsive Design with AI Breakpoints */
+@media (max-width: 1200px) {
+  .intro-container {
+    gap: 4rem;
+  }
+  
+  .intro-title {
+    font-size: clamp(2.5rem, 4vw, 3.2rem);
+  }
+}
+
+@media (max-width: 1024px) {
+  .logistics-intro {
+    padding: 8rem 5%;
+  }
+  
+  .intro-container {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  
+  .intro-content {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .intro-text {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 1.5rem;
+  }
+  
+  .intro-text::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .intro-stats {
+    justify-content: center;
+  }
+  
+  .intro-img {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .logistics-intro {
+    padding: 6rem 5%;
+  }
+  
+  .intro-title {
+    font-size: clamp(2.2rem, 5vw, 2.8rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .intro-text {
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    padding: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .intro-stats {
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .stat {
+    padding-left: 0;
+    padding-top: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .stat::before {
+    width: 40%;
+    height: 4px;
+    top: 0;
+    left: 30%;
+  }
+  
+  .intro-badge {
+    right: 0;
+    bottom: -1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logistics-intro {
+    padding: 5rem 5%;
+  }
+  
+  .intro-title {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+  }
+  
+  .stat-number {
+    font-size: clamp(1.8rem, 6vw, 2rem);
+  }
+  
+  .intro-img {
+    border-width: 8px;
+  }
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .logistics-intro::before,
+  .intro-content,
+  .intro-image,
+  .stat,
+  .intro-img,
+  .intro-badge {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .intro-content,
+  .intro-image {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  .intro-img {
+    transform: perspective(var(--perspective)) rotateY(-10deg) !important;
+  }
+}

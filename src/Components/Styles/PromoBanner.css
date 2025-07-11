@@ -1,0 +1,418 @@
+/* SARAYA Promo Banner - Professional Edition */
+:root {
+  --saraya-blue-dark: #0c1e3e;
+  --saraya-blue-medium: #1a3a6c;
+  --saraya-orange: #ff9900;
+  --saraya-orange-light: #ffcc00;
+  --saraya-white: #ffffff;
+  --saraya-shadow: rgba(0, 0, 0, 0.25);
+  --saraya-overlay-dark: rgba(12, 30, 62, 0.85);
+  --saraya-overlay-medium: rgba(12, 30, 62, 0.6);
+  --saraya-overlay-light: rgba(12, 30, 62, 0.4);
+  --easing-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --easing-dynamic: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Core Banner Structure */
+.promo-banner {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 520px;
+  max-height: 820px;
+  overflow: hidden;
+  margin: 0 auto;
+  background: var(--saraya-blue-dark);
+  isolation: isolate;
+}
+
+.promo-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.8s var(--easing-dynamic);
+  will-change: transform;
+}
+
+.promo-slide {
+  flex: 0 0 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Gradient Overlay - Professional Enhancement */
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    var(--saraya-overlay-dark) 0%,
+    var(--saraya-overlay-medium) 45%,
+    var(--saraya-overlay-light) 100%
+  );
+  z-index: 1;
+}
+
+/* Premium Content Styling */
+.slide-content {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  max-width: 1320px;
+  padding: 0 6%;
+  color: var(--saraya-white);
+}
+
+.content-wrapper {
+  max-width: 720px;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUp 0.9s var(--easing-smooth) 0.4s forwards;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-title {
+  font-size: clamp(2.4rem, 5.2vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.18;
+  margin-bottom: 1.6rem;
+  text-shadow: 0 3px 12px var(--saraya-shadow);
+  letter-spacing: -0.5px;
+}
+
+.slide-text {
+  font-size: clamp(1.15rem, 2.3vw, 1.35rem);
+  line-height: 1.65;
+  margin-bottom: 2.8rem;
+  max-width: 78%;
+  text-shadow: 0 2px 6px var(--saraya-shadow);
+  font-weight: 400;
+  opacity: 0.92;
+}
+
+/* Professional CTA Button */
+.promo-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 1.1rem 2.8rem;
+  background: linear-gradient(135deg, 
+    var(--saraya-orange) 0%, 
+    var(--saraya-orange-light) 100%);
+  color: var(--saraya-blue-dark);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.8vw, 1.2rem);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.4s var(--easing-smooth);
+  box-shadow: 0 5px 20px rgba(255, 153, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.promo-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    var(--saraya-orange-light) 0%, 
+    var(--saraya-orange) 100%);
+  opacity: 0;
+  transition: opacity 0.4s var(--easing-smooth);
+  z-index: -1;
+}
+
+.promo-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(255, 153, 0, 0.5);
+}
+
+.promo-link:hover::before {
+  opacity: 1;
+}
+
+.link-arrow {
+  margin-left: 0.9rem;
+  transition: transform 0.4s var(--easing-smooth);
+}
+
+.promo-link:hover .link-arrow {
+  transform: translateX(6px);
+}
+
+/* Premium Navigation Controls */
+.slide-nav {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1.1rem;
+  z-index: 30;
+}
+
+.nav-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: all 0.4s var(--easing-smooth);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-dot::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--saraya-white);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-dot:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.nav-dot.active {
+  background-color: transparent;
+  border-color: var(--saraya-orange);
+  transform: scale(1.35);
+}
+
+.nav-dot.active::before {
+  opacity: 0.2;
+}
+
+/* Premium Navigation Arrows */
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  background: rgba(12, 30, 62, 0.65);
+  color: var(--saraya-white);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s var(--easing-smooth);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  opacity: 0.85;
+  backdrop-filter: blur(2px);
+}
+
+.slide-arrow i {
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+}
+
+.slide-arrow:hover {
+  background: var(--saraya-orange);
+  opacity: 1;
+  transform: translateY(-50%) scale(1.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.slide-arrow:hover i {
+  transform: scale(1.2);
+}
+
+.arrow-left {
+  left: 2.5rem;
+}
+
+.arrow-right {
+  right: 2.5rem;
+}
+
+/* Professional Progress Bar */
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    var(--saraya-orange) 0%, 
+    var(--saraya-orange-light) 100%);
+  width: 0%;
+  z-index: 30;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.4);
+}
+
+/* Responsive Refinements */
+@media (max-width: 1440px) {
+  .slide-content {
+    max-width: 1140px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .promo-banner {
+    height: 72vh;
+  }
+  
+  .slide-text {
+    max-width: 85%;
+  }
+  
+  .slide-arrow {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .promo-banner {
+    height: 68vh;
+    min-height: 480px;
+  }
+  
+  .slide-title {
+    font-size: clamp(2.2rem, 4.8vw, 3.4rem);
+  }
+  
+  .slide-arrow {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .arrow-left {
+    left: 1.8rem;
+  }
+  
+  .arrow-right {
+    right: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .promo-banner {
+    height: 62vh;
+    min-height: 460px;
+  }
+  
+  .slide-text {
+    max-width: 100%;
+    margin-bottom: 2.4rem;
+  }
+  
+  .promo-link {
+    padding: 1rem 2.4rem;
+  }
+  
+  .slide-arrow {
+    width: 42px;
+    height: 42px;
+    top: 46%;
+  }
+  
+  .slide-nav {
+    bottom: 2.2rem;
+  }
+  
+  .nav-dot {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .promo-banner {
+    height: 72vh;
+    min-height: 420px;
+  }
+  
+  .slide-title {
+    margin-bottom: 1.4rem;
+    font-size: 2.3rem;
+  }
+  
+  .slide-text {
+    font-size: 1.15rem;
+    margin-bottom: 2.2rem;
+    opacity: 0.95;
+  }
+  
+  .slide-arrow {
+    width: 38px;
+    height: 38px;
+    top: 42%;
+  }
+  
+  .arrow-left {
+    left: 1rem;
+  }
+  
+  .arrow-right {
+    right: 1rem;
+  }
+  
+  .nav-dot {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .progress-bar {
+    height: 3px;
+  }
+}
+
+@media (max-width: 400px) {
+  .promo-banner {
+    height: 78vh;
+    min-height: 400px;
+  }
+  
+  .slide-content {
+    padding: 0 8%;
+  }
+  
+  .slide-title {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+  
+  .slide-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  
+  .promo-link {
+    padding: 0.9rem 2.1rem;
+    font-size: 1.05rem;
+  }
+  
+  .slide-arrow {
+    width: 36px;
+    height: 36px;
+  }
+}

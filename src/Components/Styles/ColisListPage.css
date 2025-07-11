@@ -1,0 +1,227 @@
+/* ColisListPage.css */
+/* ====================
+   Global Container
+   ==================== */
+.colis-list-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+}
+
+/* ====================
+   Headings
+   ==================== */
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.section {
+  margin-bottom: 3rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  padding-left: 0.75rem;
+  border-left: 5px solid #2563eb;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* ====================
+   Alerts
+   ==================== */
+.error {
+  color: #dc2626;
+  background-color: #fee2e2;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+/* ====================
+   Buttons: Filters & Actions
+   ==================== */
+.selection-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.selection-buttons button {
+  background-color: #e0e7ff;
+  color: #1e3a8a;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
+
+.selection-buttons button:hover {
+  background-color: #c7d2fe;
+}
+
+/* ====================
+   Colis Grid
+   ==================== */
+.colis-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+/* ====================
+   Colis Card
+   ==================== */
+.colis-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, border-color 0.3s ease;
+}
+
+.colis-card:hover {
+  transform: translateY(-4px);
+  border-color: #c7d2fe;
+}
+
+.colis-card input[type="checkbox"] {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  transform: scale(1.3);
+}
+
+/* ====================
+   Image
+   ==================== */
+.colis-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+/* ====================
+   Colis Info
+   ==================== */
+.colis-info p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.colis-info strong {
+  color: #1f2937;
+}
+
+/* ====================
+   Card Button
+   ==================== */
+.colis-card button {
+  margin-top: auto;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.colis-card button:hover {
+  background-color: #1d4ed8;
+}
+
+/* ====================
+   Status Badges
+   ==================== */
+.paid-label {
+  background-color: #22c55e;
+  color: #ffffff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.4rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.paid-status-label {
+  background-color: #e7f9ee;
+  color: #16a34a;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.4rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ====================
+   Payment Summary
+   ==================== */
+.payment-summary {
+  margin-top: 1.5rem;
+  background-color: #f1f5f9;
+  padding: 1rem 1.5rem;
+  border-radius: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  gap: 1rem;
+}
+
+.pay-button {
+  background-color: #10b981;
+  color: #ffffff;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.pay-button:hover {
+  background-color: #059669;
+}
+
+/* ====================
+   Responsive
+   ==================== */
+@media screen and (max-width: 768px) {
+  .selection-buttons {
+    flex-direction: column;
+  }
+
+  .payment-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

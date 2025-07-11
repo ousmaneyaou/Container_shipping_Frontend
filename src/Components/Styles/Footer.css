@@ -1,0 +1,263 @@
+/* Styles/Footer.css */
+
+.footer {
+  background-color: #0a1128; /* Bleu nuit profond */
+  color: #ffffff;
+  padding: 5rem 2rem 2rem;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #00b4d8, #0077b6);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+}
+
+.footer__title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.8rem;
+  position: relative;
+  padding-bottom: 0.8rem;
+  color: #48cae4;
+  letter-spacing: 0.5px;
+}
+
+.footer__title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #00b4d8, transparent);
+  border-radius: 3px;
+}
+
+.footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__list li {
+  margin-bottom: 1rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.footer__list li:hover {
+  transform: translateX(8px);
+}
+
+.footer__list a {
+  color: #caf0f8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 3px;
+  font-weight: 400;
+}
+
+.footer__list a:hover {
+  color: #ffffff;
+}
+
+.footer__list a::before {
+  content: '→';
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  color: #00b4d8;
+  transition: all 0.3s ease;
+}
+
+.footer__list a:hover::before {
+  left: -15px;
+  opacity: 1;
+}
+
+/* Section Connect with Us - Style spécial pour les réseaux sociaux */
+.footer__grid > div:nth-child(2) .footer__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer__grid > div:nth-child(2) .footer__list li {
+  margin-bottom: 0;
+}
+
+.footer__grid > div:nth-child(2) .footer__list a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(202, 240, 248, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.footer__grid > div:nth-child(2) .footer__list a::before {
+  display: none;
+}
+
+.footer__grid > div:nth-child(2) .footer__list a:hover {
+  background: rgba(0, 180, 216, 0.3);
+  transform: translateY(-3px);
+}
+
+/* Icônes réseaux sociaux (utilisez Font Awesome ou importez vos propres icônes) */
+.footer__grid > div:nth-child(2) .footer__list a::after {
+  font-family: 'Font Awesome 5 Brands';
+  font-size: 1.2rem;
+}
+
+.footer__grid > div:nth-child(2) .footer__list li:nth-child(1) a::after {
+  content: '\f39e'; /* Facebook */
+  color: #4267B2;
+}
+
+.footer__grid > div:nth-child(2) .footer__list li:nth-child(2) a::after {
+  content: '\f099'; /* Twitter */
+  color: #1DA1F2;
+}
+
+.footer__grid > div:nth-child(2) .footer__list li:nth-child(3) a::after {
+  content: '\f16d'; /* Instagram */
+  color: #E1306C;
+}
+
+.footer__grid > div:nth-child(2) .footer__list li:nth-child(4) a::after {
+  content: '\f167'; /* TikTok */
+  color: #FF0050;
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(202, 240, 248, 0.1);
+  padding-top: 2.5rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.footer__bottom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00b4d8, transparent);
+}
+
+.footer__bottom p {
+  margin: 0.8rem 0;
+  font-size: 0.9rem;
+  color: #8d9db6;
+  line-height: 1.6;
+}
+
+.footer__bottom a {
+  color: #8d9db6;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer__bottom a:hover {
+  color: #48cae4;
+}
+
+.footer__bottom a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #48cae4;
+  transition: width 0.3s ease;
+}
+
+.footer__bottom a:hover::after {
+  width: 100%;
+}
+
+/* Animation pour le footer */
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer__grid > div {
+  animation: floatIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+.footer__grid > div:nth-child(1) { animation-delay: 0.1s; }
+.footer__grid > div:nth-child(2) { animation-delay: 0.2s; }
+.footer__grid > div:nth-child(3) { animation-delay: 0.3s; }
+.footer__grid > div:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer {
+    padding: 4rem 2rem 2rem;
+  }
+  
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+  
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer__title {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .footer__grid > div:nth-child(2) .footer__list {
+    justify-content: flex-start;
+  }
+  
+  .footer__bottom p {
+    font-size: 0.85rem;
+  }
+}

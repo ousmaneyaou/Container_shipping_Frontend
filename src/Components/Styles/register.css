@@ -1,0 +1,609 @@
+ :root {
+            /* Couleurs spatiales */
+            --space-dark: #0a1128;
+            --space-light: #1a2a4a;
+            --electric-blue: #00f5ff;
+            --neon-pink: #ff00e4;
+            --plasma-purple: #9d00ff;
+            --star-white: #f8f9fa;
+            --cosmic-gray: #a8b2d1;
+            --error-red: #ff4d6d;
+            --success-green: #00ff9d;
+            
+            /* Effets visuels */
+            --galaxy-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+            --quantum-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            
+            /* Dégradés */
+            --primary-gradient: linear-gradient(135deg, var(--electric-blue) 0%, var(--plasma-purple) 100%);
+            --primary-gradient-transparent: linear-gradient(135deg, rgba(0, 245, 255, 0.85) 0%, rgba(157, 0, 255, 0.85) 100%);
+            
+            /* Dimensions */
+            --border-radius: 16px;
+            --input-padding: 1.1rem 1.5rem 1.1rem 3.5rem;
+            --section-padding: clamp(2.5rem, 5vw, 3.5rem);
+            
+            /* Typographie */
+            --heading-font: 'Orbitron', sans-serif;
+            --body-font: 'Exo 2', sans-serif;
+            --font-size-xl: clamp(2rem, 4vw, 3rem);
+            --font-size-lg: clamp(1.8rem, 3vw, 2.5rem);
+            --font-size-md: 1.05rem;
+            --font-size-sm: 0.95rem;
+        }
+
+        /* =============== ANIMATIONS =============== */
+        @keyframes cosmic-pulse {
+            0% { box-shadow: 0 0 8px var(--electric-blue); }
+            50% { box-shadow: 0 0 30px var(--electric-blue), 0 0 45px var(--plasma-purple); }
+            100% { box-shadow: 0 0 8px var(--electric-blue); }
+        }
+
+        @keyframes nebula-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOutDown {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        /* =============== BASE STYLES =============== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background: linear-gradient(145deg, var(--space-dark), var(--space-light));
+            color: var(--star-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* =============== LAYOUT STRUCTURE =============== */
+        .register-container {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Fond cosmique */
+        .register-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 245, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(157, 0, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(255, 0, 228, 0.05) 0%, transparent 30%);
+            background-size: 300% 300%;
+            animation: nebula-flow 15s ease infinite;
+            z-index: 0;
+        }
+
+        /* Colonne gauche - Image */
+        .register-left {
+            flex: 1;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+            z-index: 1;
+            min-height: 500px;
+        }
+
+        .register-left::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--primary-gradient-transparent);
+            mix-blend-mode: multiply;
+            z-index: 0;
+        }
+
+        .register-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.9) contrast(1.1);
+            transition: var(--quantum-transition);
+        }
+
+        .register-left:hover .register-image {
+            filter: brightness(0.95) contrast(1.05);
+        }
+
+        /* Slogan */
+        .register-slogan {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            z-index: 3;
+            color: var(--star-white);
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            line-height: 1.3;
+            max-width: 45%;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            font-family: var(--heading-font);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        /* Colonne droite - Formulaire */
+        .register-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        /* Carte du formulaire */
+        .register-card {
+            max-width: min(650px, 90%);
+            width: 100%;
+            padding: var(--section-padding);
+            background: rgba(10, 17, 40, 0.6);
+            backdrop-filter: blur(12px);
+            box-shadow: 
+                -10px 0 50px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(0, 245, 255, 0.1),
+                inset 0 0 20px rgba(0, 245, 255, 0.1);
+            border-radius: var(--border-radius);
+            position: relative;
+            z-index: 0;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 3px solid var(--electric-blue);
+        }
+
+        .register-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                -10px 0 50px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(157, 0, 255, 0.3),
+                inset 0 0 25px rgba(0, 245, 255, 0.15);
+        }
+
+        .register-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(0, 245, 255, 0.05) 50%, transparent 100%);
+            z-index: -1;
+            pointer-events: none;
+            border-radius: var(--border-radius);
+        }
+
+        /* Titre */
+        .register-card h2 {
+            color: var(--star-white);
+            margin-bottom: 2.5rem;
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+            font-family: var(--heading-font);
+        }
+
+        .register-card h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: var(--primary-gradient);
+            margin: 1.5rem auto 0;
+            border-radius: 3px;
+            box-shadow: 0 0 15px var(--plasma-purple);
+        }
+
+        /* =============== FORM STYLES =============== */
+        .register-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        /* Ligne avec deux champs */
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* Groupes de champs */
+        .form-group {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Labels */
+        .register-form label {
+            color: var(--cosmic-gray);
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            display: block;
+            font-size: 1rem;
+            transition: var(--quantum-transition);
+            padding-left: 0.5rem;
+        }
+
+        .form-group.focused label {
+            color: var(--electric-blue);
+            text-shadow: 0 0 5px rgba(0, 245, 255, 0.3);
+        }
+
+        /* Champs de formulaire */
+        .register-form input,
+        .register-form select {
+            padding: var(--input-padding);
+            border: 1px solid rgba(168, 178, 209, 0.3);
+            border-radius: var(--border-radius);
+            font-size: var(--font-size-md);
+            transition: var(--quantum-transition);
+            width: 100%;
+            background: rgba(10, 17, 40, 0.5);
+            color: var(--star-white);
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+            font-family: var(--body-font);
+        }
+
+        .register-form input:focus,
+        .register-form select:focus {
+            border-color: var(--electric-blue);
+            box-shadow: 
+                0 0 0 3px rgba(0, 245, 255, 0.25),
+                inset 0 0 15px rgba(0, 245, 255, 0.2);
+            outline: none;
+            background: rgba(10, 17, 40, 0.7);
+        }
+
+        .register-form input::placeholder {
+            color: var(--cosmic-gray);
+            opacity: 0.7;
+        }
+
+        /* Icônes dans les inputs */
+        .form-group::before {
+            content: '';
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            opacity: 0.8;
+            transition: var(--quantum-transition);
+        }
+
+        .username-group::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f5ff'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+        }
+
+        .email-group::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f5ff'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
+        }
+
+        .password-group::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f5ff'%3E%3Cpath d='M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z'/%3E%3C/svg%3E");
+        }
+
+        .phone-group::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f5ff'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E");
+        }
+
+        .form-group:focus-within::before {
+            opacity: 1;
+            filter: drop-shadow(0 0 5px var(--neon-pink));
+        }
+
+        /* Bouton de soumission */
+        .register-form button {
+            padding: 1.2rem;
+            background: var(--primary-gradient);
+            color: var(--space-dark);
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--quantum-transition);
+            position: relative;
+            overflow: hidden;
+            margin-top: 1rem;
+            box-shadow: var(--galaxy-shadow);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: var(--heading-font);
+            z-index: 1;
+            animation: cosmic-pulse 4s infinite;
+        }
+
+        .register-form button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .register-form button:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 10px 25px rgba(157, 0, 255, 0.5),
+                0 0 30px rgba(0, 245, 255, 0.4);
+            animation: none;
+        }
+
+        .register-form button:hover::before {
+            left: 100%;
+        }
+
+        .register-form button:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            animation: none;
+        }
+
+        .button-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .button-loader {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        /* Pied de page du formulaire */
+        .register-footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            color: var(--cosmic-gray);
+            font-size: var(--font-size-sm);
+        }
+
+        .register-link {
+            color: var(--electric-blue);
+            text-decoration: none;
+            transition: var(--quantum-transition);
+            font-weight: 600;
+            position: relative;
+            text-shadow: 0 0 5px rgba(0, 245, 255, 0.3);
+        }
+
+        .register-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.4s ease;
+            border-radius: 2px;
+        }
+
+        .register-link:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px rgba(255, 0, 228, 0.5);
+        }
+
+        .register-link:hover::after {
+            width: 100%;
+        }
+
+        /* Messages d'erreur */
+        .error-message {
+            color: var(--error-red);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+            text-shadow: 0 0 5px rgba(255, 77, 109, 0.3);
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .form-group.error input,
+        .form-group.error select {
+            border-color: var(--error-red);
+            background-color: rgba(255, 77, 109, 0.1);
+            box-shadow: 0 0 10px rgba(255, 77, 109, 0.2);
+        }
+
+        /* Messages de succès */
+        .form-group.success input,
+        .form-group.success select {
+            border-color: var(--success-green);
+            background-color: rgba(0, 255, 157, 0.1);
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+        }
+
+        /* Vague cosmique */
+        .wave-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%2300f5ff' fill-opacity='0.2' d='M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,224C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") repeat-x;
+            background-size: 1440px 120px;
+            z-index: 1;
+        }
+
+        /* Logo */
+        .cyber-logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-family: var(--heading-font);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: transparent;
+            background: linear-gradient(90deg, var(--electric-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+            z-index: 10;
+        }
+
+        /* =============== RESPONSIVE DESIGN =============== */
+        @media (max-width: 1024px) {
+            .register-left {
+                clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+            }
+            
+            .register-slogan {
+                max-width: 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .register-container {
+                flex-direction: column;
+            }
+
+            .register-left {
+                flex: none;
+                height: 35vh;
+                min-height: 300px;
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            }
+            
+            .register-slogan {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                max-width: 90%;
+                animation: float 8s ease-in-out infinite, fadeInUp 0.8s ease;
+            }
+
+            .register-card {
+                max-width: 100%;
+                padding: 3rem 2rem 5rem;
+                box-shadow: none;
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
+                margin-top: -40px;
+                border-left: none;
+                border-top: 3px solid var(--electric-blue);
+            }
+            
+            .register-card h2::after {
+                width: 80px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .register-card {
+                padding: 2.5rem 1.8rem 4rem;
+            }
+            
+            .register-form {
+                gap: 1.5rem;
+            }
+            
+            .register-form input,
+            .register-form select {
+                padding: 1rem 1.2rem 1rem 3rem;
+            }
+            
+            .cyber-logo {
+                font-size: 1.5rem;
+                top: 20px;
+                left: 20px;
+            }
+        }
+
+        /* Classes d'animation */
+        .fade-in {
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .fade-out {
+            animation: fadeOutDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        /* Améliorations d'accessibilité */
+        .register-form input:focus-visible,
+        .register-form select:focus-visible,
+        .register-link:focus-visible,
+        .register-form button:focus-visible {
+            outline: 2px solid var(--electric-blue);
+            outline-offset: 2px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
