@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/shipping-container-front/static/css/main.1d90402e.css",
-    "main.js": "/shipping-container-front/static/js/main.b9883be9.js",
-    "static/js/453.cbbcfa3e.chunk.js": "/shipping-container-front/static/js/453.cbbcfa3e.chunk.js",
+    "main.css": "/shipping-container-front/static/css/main.21e324e4.css",
+    "main.js": "/shipping-container-front/static/js/main.018f8710.js",
+    "static/js/453.35769bc0.chunk.js": "/shipping-container-front/static/js/453.35769bc0.chunk.js",
     "static/media/fejuz-q6j5mSRpi50-unsplash.jpg": "/shipping-container-front/static/media/fejuz-q6j5mSRpi50-unsplash.74c437b120925bcb5653.jpg",
     "static/media/cont1.jpg": "/shipping-container-front/static/media/cont1.a0266e02f22f15b77345.jpg",
     "static/media/tri-eptaroka-mardiana-hP4ZiN1_kdk-unsplash.jpg": "/shipping-container-front/static/media/tri-eptaroka-mardiana-hP4ZiN1_kdk-unsplash.318dafa5aec8201cfb3a.jpg",
@@ -16,12 +16,12 @@
     "static/media/cont2.jpg": "/shipping-container-front/static/media/cont2.eada7f98a6a36e6a45b0.jpg",
     "static/media/FMU_Blog_Thumbnail.webp": "/shipping-container-front/static/media/FMU_Blog_Thumbnail.73dbd9ce967a092ed5d2.webp",
     "index.html": "/shipping-container-front/index.html",
-    "main.1d90402e.css.map": "/shipping-container-front/static/css/main.1d90402e.css.map",
-    "main.b9883be9.js.map": "/shipping-container-front/static/js/main.b9883be9.js.map",
-    "453.cbbcfa3e.chunk.js.map": "/shipping-container-front/static/js/453.cbbcfa3e.chunk.js.map"
+    "main.21e324e4.css.map": "/shipping-container-front/static/css/main.21e324e4.css.map",
+    "main.018f8710.js.map": "/shipping-container-front/static/js/main.018f8710.js.map",
+    "453.35769bc0.chunk.js.map": "/shipping-container-front/static/js/453.35769bc0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1d90402e.css",
-    "static/js/main.b9883be9.js"
+    "static/css/main.21e324e4.css",
+    "static/js/main.018f8710.js"
   ]
 }
